@@ -16,7 +16,7 @@ tauri = { version = "2", features = ["unstable"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 # Finding linked phones on the local network (pure Rust, no system service needed).
-mdns-sd = "0.11"
+mdns-sd = "0.21"
 # The pairing QR code, drawn as SVG.
 qrcode = { version = "0.14", default-features = false, features = ["svg"] }
 

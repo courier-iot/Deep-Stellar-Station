@@ -1,0 +1,28 @@
+[package]
+name = "deep-stellar-station"
+version = "0.1.0"
+description = "Deep Stellar Station: a private, deep-space desktop browser that links with Deep Stellar Browsing on Android"
+authors = ["courier-iot"]
+license = "MIT"
+edition = "2021"
+rust-version = "1.77"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+# "unstable" enables several web views inside one window (the toolbar + one view per tab).
+tauri = { version = "2", features = ["unstable"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# Finding linked phones on the local network (pure Rust, no system service needed).
+mdns-sd = "0.11"
+# The pairing QR code, drawn as SVG.
+qrcode = { version = "0.14", default-features = false, features = ["svg"] }
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true

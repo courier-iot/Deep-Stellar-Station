@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Deep Stellar Station</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Tab strip -->
+  <header id="tabbar" role="tablist" aria-label="Tabs">
+    <div id="tabs"></div>
+    <button id="newTab" class="icon" title="New tab (Ctrl+T)" aria-label="New tab">＋</button>
+    <div class="spacer"></div>
+    <span id="brand" aria-hidden="true">DEEP STELLAR STATION</span>
+  </header>
+
+  <!-- Navigation bar -->
+  <nav id="navbar" aria-label="Navigation">
+    <button id="back" class="icon" title="Back (Alt+←)" aria-label="Back">←</button>
+    <button id="forward" class="icon" title="Forward (Alt+→)" aria-label="Forward">→</button>
+    <button id="reload" class="icon" title="Reload (Ctrl+R)" aria-label="Reload">⟳</button>
+    <button id="home" class="icon" title="Start page" aria-label="Start page">⌂</button>
+    <form id="addressForm" autocomplete="off">
+      <span id="lock" aria-hidden="true"></span>
+      <input id="address" type="text" spellcheck="false" placeholder="Search or enter address" aria-label="Address and search">
+    </form>
+    <button id="shield" class="icon" title="Ad &amp; tracker shield" aria-label="Ad shield">⛨<span id="shieldCount"></span></button>
+    <button id="bookmark" class="icon" title="Bookmark this page (Ctrl+D)" aria-label="Bookmark this page">☆</button>
+    <button id="panelBtn" class="icon" title="Linked devices, downloads, bookmarks" aria-label="Open side panel">◧<span id="inboxBadge" hidden></span></button>
+    <button id="menuBtn" class="icon" title="Menu" aria-label="Menu">⋮</button>
+    <div id="progress" aria-hidden="true"></div>
+  </nav>
+
+  <!-- Side panel (pages shrink to make room) -->
+  <aside id="panel" hidden aria-label="Side panel">
+    <div class="panelTabs" role="tablist">
+      <button data-pane="link" class="on" role="tab">Linked</button>
+      <button data-pane="downloads" role="tab">Downloads</button>
+      <button data-pane="bookmarks" role="tab">Bookmarks</button>
+      <button id="panelClose" class="icon" aria-label="Close panel">✕</button>
+    </div>
+
+    <section id="pane-link" class="pane">
+      <div id="linkEmpty" class="empty">
+        <p>Share links privately between this computer and <b>Deep Stellar Browsing</b> on your Android phone.</p>
+        <p class="dim">Same Wi-Fi only for now. Everything is end-to-end encrypted: no server, no account.</p>
+        <button id="pairBtn" class="primary">Link a phone</button>
+      </div>
+      <div id="linkPeers"></div>
+      <div id="inbox" aria-live="polite"></div>
+      <form id="noteForm" hidden>
+        <select id="noteTo" aria-label="Send to"></select>
+        <input id="noteText" placeholder="Send a note or link…" aria-label="Note to send">
+        <button class="primary" type="submit">Send</button>
+      </form>
+    </section>
+
+    <section id="pane-downloads" class="pane" hidden>
+      <div class="row"><button id="openDownloads">Open downloads folder</button></div>
+      <div id="downloads"></div>
+    </section>
+
+    <section id="pane-bookmarks" class="pane" hidden>
+      <div class="row">
+        <input id="bmFilter" placeholder="Filter bookmarks" aria-label="Filter bookmarks">
+      </div>
+      <div class="row">
+        <button id="bmImport">Import…</button>
+        <button id="bmExport">Export</button>
+        <input id="bmFile" type="file" accept=".html,.htm,text/html" hidden>
+      </div>
+      <div id="bookmarks"></div>
+    </section>
+  </aside>
+
+  <!-- Dialogs cover the page area; the active tab is hidden while one is open -->
+  <div id="overlay" hidden>
+    <div id="dialog" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="theme.js"></script>
+  <script src="link.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

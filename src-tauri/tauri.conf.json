@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Deep Stellar Station",
+  "version": "0.1.0",
+  "identifier": "dev.deepstellar.station",
+  "build": {
+    "frontendDist": "../ui"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["appimage", "deb", "nsis"],
+    "category": "Network",
+    "shortDescription": "Private deep-space browser that links with your phone",
+    "longDescription": "Deep Stellar Station is a private desktop browser: no history, an ad and tracker shield, a starfield start page, and encrypted link sharing with Deep Stellar Browsing on Android over your own Wi-Fi.",
+    "copyright": "MIT License",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.png",
+      "icons/icon.ico"
+    ],
+    "linux": {
+      "deb": {
+        "depends": []
+      }
+    },
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser"
+      }
+    }
+  }
+}

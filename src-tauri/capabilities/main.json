@@ -1,0 +1,10 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main",
+  "description": "Only the browser's own toolbar may call into the app. Web pages in tabs get no access at all.",
+  "windows": ["main"],
+  "webviews": ["ui"],
+  "permissions": [
+    "core:default"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "deep-stellar-station",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Build tooling only. The app itself has no npm dependencies.",
+  "scripts": {
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

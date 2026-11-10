@@ -60,7 +60,7 @@ jobs:
           ls -la out
           cd out && for f in *; do sha256sum "$f" >> "SHA256SUMS-${{ runner.os }}.txt"; done
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: DeepStellarStation-${{ env.APP_VERSION }}-${{ runner.os }}
           path: out/*
